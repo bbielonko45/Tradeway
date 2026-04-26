@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tradeway</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #05060c;
+  color: white;
+}
+
+.hero {
+  position: relative;
+}
+
+.hero img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 40px;
+}
+
+h1 {
+  font-size: 36px;
+}
+
+.highlight {
+  color: #9a5cff;
+}
+
+.section {
+  max-width: 900px;
+  margin: 60px auto;
+  padding: 20px;
+}
+
+.card {
+  background: rgba(255,255,255,0.05);
+  border-radius: 20px;
+  padding: 20px;
+}
+
+button {
+  background: #9a5cff;
+  border: none;
+  padding: 12px 20px;
+  color: white;
+  border-radius: 10px;
+  margin-top: 10px;
+}
+</style>
+</head>
+
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c" alt="trade">
+  <div class="overlay">
+    <h1>Trade what you have.<br><span class="highlight">Get what you need.</span></h1>
+    <p>Your skills are currency.</p>
+  </div>
+</div>
+
+<!-- STORY -->
+<div class="section card">
+  <h2>Why Tradeway exists</h2>
+
+  <p>
+    I was going through my wallet one day and realized I needed a new one.
+    The problem wasn’t that I didn’t want one — I just didn’t want to spend money on it.
+  </p>
+
+  <p>
+    But I had skills. I could build things. I could create value.
+  </p>
+
+  <p class="highlight">
+    There has to be someone out there who has what I need… and needs what I can do.
+  </p>
+
+  <p>
+    Why does everything have to go through money?
+  </p>
+
+  <p>
+    What if people could trade skills, time, and effort directly?
+  </p>
+
+  <p><strong>Tradeway is the answer.</strong></p>
+</div>
+
+<!-- MARKETPLACE -->
+<div class="section">
+  <h2>Browse Trades</h2>
+
+  <div class="card">
+    <p><strong>Custom Wood Sign</strong></p>
+    <p>Offering woodworking → Wants tools</p>
+    <button>Propose Trade</button>
+  </div>
+
+  <br>
+
+  <div class="card">
+    <p><strong>Lawn Care Service</strong></p>
+    <p>Offering yard work → Wants meals</p>
+    <button>Propose Trade</button>
+  </div>
+
+  <br>
+
+  <div class="card">
+    <p><strong>Car Repair Help</strong></p>
+    <p>Offering mechanic work → Wants handmade items</p>
+    <button>Propose Trade</button>
+  </div>
+</div>
+
+<!-- POST TRADE -->
+<div class="section card">
+  <h2>Post a Trade</h2>
+
+  <input placeholder="What are you offering?" style="width:100%;padding:10px;margin:5px 0;"><br>
+  <input placeholder="What do you want?" style="width:100%;padding:10px;margin:5px 0;"><br>
+  <button onclick="alert('Trade posted (demo)')">Post Trade</button>
+</div>
+
+</body>
+</html>
