@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tradeway</title>
+
+<style>
+body{
+  margin:0;
+  font-family:Arial;
+  background:#05060c;
+  color:white;
+}
+
+/* HERO */
+.hero{
+  position:relative;
+}
+.hero img{
+  width:100%;
+}
+.hero-text{
+  position:absolute;
+  top:20%;
+  left:8%;
+}
+.hero-text h1{
+  font-size:40px;
+}
+.hero-text span{
+  color:#9b4dff;
+}
+
+/* SECTIONS */
+.section{
+  padding:30px;
+}
+
+/* CARD */
+.card{
+  background:#0c0d16;
+  padding:20px;
+  border-radius:20px;
+  margin-top:15px;
+}
+
+/* INPUTS */
+input, textarea{
+  width:100%;
+  padding:12px;
+  margin-top:10px;
+  border-radius:10px;
+  border:none;
+  background:#111;
+  color:white;
+}
+
+/* BUTTON */
+button{
+  background:linear-gradient(90deg,#9b4dff,#3179ff);
+  border:none;
+  color:white;
+  padding:12px;
+  border-radius:999px;
+  width:100%;
+  margin-top:10px;
+  font-weight:bold;
+}
+
+/* LISTINGS */
+.listing{
+  background:#0c0d16;
+  padding:15px;
+  border-radius:15px;
+  margin-top:10px;
+}
+</style>
+
+</head>
+
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c">
+  <div class="hero-text">
+    <h1>Trade what you have.<br><span>Get what you need.</span></h1>
+    <p>Your skills are currency.</p>
+  </div>
+</div>
+
+<!-- STORY -->
+<div class="section">
+  <h2>Why Tradeway exists</h2>
+
+  <div class="card">
+    <p>I was going through my wallet one day and realized I needed a new one.</p>
+
+    <p>The problem wasn’t that I didn’t want one — I just didn’t want to spend money.</p>
+
+    <p>But I had skills. I could build things. I could create value.</p>
+
+    <p style="color:#a35cff;"><b>
+    There has to be someone out there who has what I need… and needs what I can do.
+    </b></p>
+
+    <p><b>Why does everything have to go through money?</b></p>
+
+    <p>What if people could trade skills, time, and effort directly?</p>
+
+    <p><b>Tradeway is the answer.</b></p>
+  </div>
+</div>
+
+<!-- CREATE LISTING -->
+<div class="section">
+  <h2>Create a trade</h2>
+
+  <div class="card">
+    <input id="title" placeholder="Title">
+    <textarea id="has" placeholder="What do you have?"></textarea>
+    <textarea id="want" placeholder="What do you want?"></textarea>
+
+    <button onclick="addListing()">Post Trade</button>
+  </div>
+</div>
+
+<!-- LISTINGS -->
+<div class="section">
+  <h2>Live Marketplace</h2>
+
+  <div id="listings"></div>
+</div>
+
+<script>
+let listings = JSON.parse(localStorage.getItem("listings")) || [];
+
+function addListing(){
+  let title = document.getElementById("title").value;
+  let has = document.getElementById("has").value;
+  let want = document.getElementById("want").value;
+
+  if(!title) return alert("Add a title");
+
+  listings.push({title, has, want});
+  localStorage.setItem("listings", JSON.stringify(listings));
+
+  displayListings();
+}
+
+function displayListings(){
+  let container = document.getElementById("listings");
+  container.innerHTML = "";
+
+  listings.reverse().forEach(item=>{
+    container.innerHTML += `
+      <div class="listing">
+        <h3>${item.title}</h3>
+        <p><b>Has:</b> ${item.has}</p>
+        <p><b>Wants:</b> ${item.want}</p>
+      </div>
+    `;
+  });
+}
+
+displayListings();
+</script>
+
+</body>
+</html>
